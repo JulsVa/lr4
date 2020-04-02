@@ -10,6 +10,7 @@ using lab.Storage;
 
 namespace lab.Controllers
 {
+    //
     [Route("api/[controller]")]
     [ApiController]
     public class myController : ControllerBase
