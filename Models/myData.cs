@@ -1,0 +1,35 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace lab.Models
+{
+    public class myData
+    {
+        public Guid Id { get; set; } = Guid.Empty;
+        public string Name { get; set; }
+        public string Surname { get; set; }
+        public byte GroupIndex { get; set; }
+        public string GroupPrefix { get; set; }
+        public BaseModelValidationResult Validate()
+        {
+            var validationResult = new BaseModelValidationResult();
+
+            if (string.IsNullOrWhiteSpace(Name)) validationResult.Append($"Name cannot be empty");
+            if (string.IsNullOrWhiteSpace(Surname)) validationResult.Append($"Surname cannot be empty");
+            if (!(0 < GroupIndex && GroupIndex < 100)) validationResult.Append($"GroupIndex {GroupIndex} is out of range (0..100)");
+
+            if (!string.IsNullOrEmpty(Name) && !char.IsUpper(Name.FirstOrDefault())) validationResult.Append($"Name {Name} should start from capital letter");
+            if (!string.IsNullOrEmpty(Surname) && !char.IsUpper(Surname.FirstOrDefault())) validationResult.Append($"Surname {Surname} should start from capital letter");
+
+            return validationResult;
+        }
+
+        public override string ToString()
+        {
+            return $"{Name} {Surname} from {GroupPrefix}-{GroupIndex}";
+        }
+
+    }
+}
