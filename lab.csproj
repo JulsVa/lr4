@@ -3,7 +3,7 @@
   <PropertyGroup>
    <TargetFramework>netcoreapp2.1</TargetFramework>
    <Version>0.0.3-rc.1</Version>
-   <Authors>Julia Varyukhina and Anastasia Petrenko</Authors>
+   <Authors>Julia Varyukhina and Anastasia Petrenko </Authors>
    <Company>arl-shipping.com</Company>
    <Product>Lab 2</Product>
    <PackageId>MyApp</PackageId>
