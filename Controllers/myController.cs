@@ -15,7 +15,13 @@ namespace lab.Controllers
     [ApiController]
     public class myController : ControllerBase
     {
-        private static IStorage<myData> _memCache = new MemCache();
+        private IStorage<myData> _memCache;
+
+        public myController(IStorage<myData> memCache)
+        {
+            _memCache = memCache;
+        }
+
 
         [HttpGet]
         public ActionResult<IEnumerable<myData>> Get()

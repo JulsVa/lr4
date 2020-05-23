@@ -13,4 +13,5 @@ namespace lab.Storage
         void RemoveAt(Guid id);
         bool Has(Guid id);
     }
+
 }
