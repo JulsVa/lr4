@@ -2,10 +2,10 @@
 
   <PropertyGroup>
    <TargetFramework>netcoreapp2.1</TargetFramework>
-   <Version>0.0.3-rc.1</Version>
+   <Version>0.0.4-rc.1</Version>
    <Authors>Julia Varyukhina and Anastasia Petrenko </Authors>
-   <Company>arl-shipping.com</Company>
-   <Product>Lab 2</Product>
+   <Company>Julia-and-Anastasia.com</Company>
+   <Product>Lab 4</Product>
    <PackageId>MyApp</PackageId>
    <FileVersion>0.0.1</FileVersion>
  </PropertyGroup>
@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="GitVersion" Version="3.6.5" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
   </ItemGroup>
