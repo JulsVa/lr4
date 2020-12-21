@@ -12,6 +12,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using lab.Storage;
 using lab.Models;
+using Serilog;
 
 namespace lab
 {
@@ -28,7 +29,7 @@ namespace lab
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-
+            ConfigureLogger();
             switch (Configuration["Storage:Type"].ToStorageEnum())
             {
                 case StorageEnum.MemCache:
@@ -57,6 +58,17 @@ namespace lab
 
             app.UseHttpsRedirection();
             app.UseMvc();
+        }
+
+        private void ConfigureLogger()
+
+        {
+            var log = new LoggerConfiguration()
+            .WriteTo.Console()
+            .WriteTo.File("logs\\thefirst.log", rollingInterval: RollingInterval.Day)
+            .CreateLogger();
+            Log.Logger = log;
+
         }
     }
 }

@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using lab.Models;
 using lab.Storage;
+using Serilog;
 
 namespace lab.Controllers
 {
@@ -40,11 +41,12 @@ namespace lab.Controllers
         public IActionResult Post([FromBody] myData value)
         {
             var validationResult = value.Validate();
-
             if (!validationResult.IsValid) return BadRequest(validationResult.Errors);
-
             _memCache.Add(value);
-
+            Log.Information("Adding information about serials");
+            Log.Warning("Some warning");
+            Log.Error("Here comes an error");
+            Log.Information($"This information about serials have been added: {value}");
             return Ok($"{value.ToString()} has been added");
         }
 
