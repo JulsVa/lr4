@@ -8,6 +8,7 @@ namespace lab.Storage
 {
     public class MemCache : IStorage<myData>
     {
+        public string StorageType => $"{nameof(MemCache)}";
         private object _sync = new object();
         private List<myData> _memCache = new List<myData>();
         public myData this[Guid id]

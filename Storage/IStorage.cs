@@ -7,6 +7,7 @@ namespace lab.Storage
 {
     public interface IStorage<T> where T : class
     {
+        string StorageType { get; }
         List<T> All { get; }
         T this[Guid id] { get; set; }
         void Add(T value);

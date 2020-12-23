@@ -9,6 +9,7 @@ namespace lab.Storage
 {
     public class FileStorage : MemCache, IStorage<myData>
     {
+        new public string StorageType => $"{nameof(FileStorage)}";
         private Timer _timer;
 
         public string FileName { get; }
